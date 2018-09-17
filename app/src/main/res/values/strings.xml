@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Farmer ecom</string>
+    <string name="app_logo">Logo</string>
+    <string name="sign_in_str">Sign In</string>
+</resources>
