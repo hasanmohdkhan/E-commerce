@@ -2,4 +2,16 @@
     <string name="app_name">Farmer ecom</string>
     <string name="app_logo">Logo</string>
     <string name="sign_in_str">Sign In</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="sign_in_btn_str">Sign in</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_order">Order</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_shop">Shop</string>
+    <string name="title_gifts">Gifts</string>
+    <string name="title_cart">Cart</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_map">Tracker</string>
 </resources>
