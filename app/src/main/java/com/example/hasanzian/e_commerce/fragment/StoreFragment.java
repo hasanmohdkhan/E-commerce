@@ -11,11 +11,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.hasanzian.e_commerce.DataModels;
 import com.example.hasanzian.e_commerce.R;
-import com.example.hasanzian.e_commerce.adaptor.ShopAdapter;
+import com.example.hasanzian.e_commerce.adaptor.ItemAdapter;
+import com.example.hasanzian.e_commerce.model.DataModels;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -26,6 +30,9 @@ public class StoreFragment extends Fragment {
     @BindView(R.id.recycler)
     RecyclerView mRecyclerView;
     private List<DataModels> list;
+    public DatabaseReference mDatabaseReference;
+    private FirebaseRecyclerAdapter<DataModels,ItemAdapter> mFirebaseAdapter;
+    private LinearLayoutManager mLinearLayoutManager;
 
     public StoreFragment() {
         // Required empty public constructor
@@ -47,24 +54,74 @@ public class StoreFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
+
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_store, container, false);
         ButterKnife.bind(this, view);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        list = new ArrayList<>();
-        list.add(new DataModels("Hybrid T12", "$ 24", R.drawable.ic_home_black_24dp));
-        list.add(new DataModels("Hybrid T13", "$ 21", R.drawable.ic_dashboard_black_24dp));
-        list.add(new DataModels("Hybrid T14", "$ 26", R.drawable.ic_home_black_24dp));
-        list.add(new DataModels("Hybrid T15", "$ 64", R.drawable.account));
-        list.add(new DataModels("Hybrid T16", "$ 94", R.drawable.ic_plant));
+        mLinearLayoutManager = new LinearLayoutManager(getContext());
 
 
-        ShopAdapter adapter = new ShopAdapter(list);
-        mRecyclerView.setAdapter(adapter);
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference();
+        Query query = FirebaseDatabase.getInstance()
+                .getReference()
+                .child("order");
+
+        FirebaseRecyclerOptions<DataModels> options = new FirebaseRecyclerOptions.Builder<DataModels>().setQuery(query,DataModels.class).build();
+
+        mFirebaseAdapter = new FirebaseRecyclerAdapter<DataModels, ItemAdapter>(options) {
+            @Override
+            protected void onBindViewHolder(@NonNull ItemAdapter holder, int position, @NonNull DataModels model) {
+
+                if(model.getTitle() !=null){
+                    holder.mProductName.setText(model.getTitle());
+                }
+                else {
+                    holder.mProductName.setText("no data ");
+                }
+                if(model.getPrice() !=null){
+                    holder.mPrice.setText(model.getPrice());
+                }
+                else {
+                    holder.mPrice.setText("no Price ");
+                }
+                if(model.getImageUrl() == 1){
+                    holder.mThumbnail.setImageResource(R.drawable.account);
+                }
+                else {
+                    holder.mThumbnail.setImageResource(R.drawable.ic_plant);
+                }
+
+                }
+
+            @NonNull
+            @Override
+            public ItemAdapter onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                 View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item,parent,false);
+                 return new ItemAdapter(view);
+            }
+        };
+
+
+        mRecyclerView.setLayoutManager(mLinearLayoutManager);
+        mRecyclerView.setAdapter(mFirebaseAdapter);
+
+
         return view;
 
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        mFirebaseAdapter.startListening();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        mFirebaseAdapter.stopListening();
     }
 
 

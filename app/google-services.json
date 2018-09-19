@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "278769781910",
+    "firebase_url": "https://farmer-ecom.firebaseio.com",
+    "project_id": "farmer-ecom",
+    "storage_bucket": "farmer-ecom.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:278769781910:android:583c7682a62ba186",
+        "android_client_info": {
+          "package_name": "com.example.hasanzian.e_commerce"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "278769781910-dhhr1imk3ppvpm3ruuq87af8sdnoh0ll.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hasanzian.e_commerce",
+            "certificate_hash": "c46d29a300602b2dfd1472808a9db4ec4259554d"
+          }
+        },
+        {
+          "client_id": "278769781910-vbef2526tnej3cccr9i83fo91mdl1c5l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvnVOLm5BZYD0TZjYxcZ3H4bFZpc1eZy4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "278769781910-vbef2526tnej3cccr9i83fo91mdl1c5l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

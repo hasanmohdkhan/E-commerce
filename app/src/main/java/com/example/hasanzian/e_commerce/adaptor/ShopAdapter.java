@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.hasanzian.e_commerce.DataModels;
+import com.example.hasanzian.e_commerce.model.DataModels;
 import com.example.hasanzian.e_commerce.R;
 
 import java.util.List;
@@ -34,7 +34,7 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.myViewHolder>{
     public void onBindViewHolder(@NonNull myViewHolder holder, int i) {
                holder.mProductName.setText(mList.get(i).getTitle());
                holder.mPrice.setText(mList.get(i).getPrice());
-               holder.mThumbnail.setImageResource(mList.get(i).getImage());
+               holder.mThumbnail.setImageResource(mList.get(i).getImageUrl());
     }
 
     @Override
