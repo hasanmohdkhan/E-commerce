@@ -17,14 +17,14 @@ import com.example.hasanzian.e_commerce.fragment.StoreFragment;
 import com.example.hasanzian.e_commerce.fragment.TrackerFragment;
 
 /*
-*  MainActivity Used to initialized bottom navigation
+*  SellerActivity Used to initialized bottom navigation
 *  it set default layout to shopFragment
 *
 *  TODO rename it
 *
 * */
 
-public class MainActivity extends AppCompatActivity {
+public class SellerActivity extends AppCompatActivity {
    private ActionBar actionBar;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
