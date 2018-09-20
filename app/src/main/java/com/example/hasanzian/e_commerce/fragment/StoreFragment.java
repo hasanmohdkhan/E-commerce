@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.bumptech.glide.Glide;
 import com.example.hasanzian.e_commerce.R;
 import com.example.hasanzian.e_commerce.adaptor.ItemAdapter;
 import com.example.hasanzian.e_commerce.model.DataModels;
@@ -62,8 +63,9 @@ public class StoreFragment extends Fragment {
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mLinearLayoutManager = new LinearLayoutManager(getContext());
 
-
+        // Firebase reference  here
         mDatabaseReference = FirebaseDatabase.getInstance().getReference();
+        //Quary to narrow down data calls
         Query query = FirebaseDatabase.getInstance()
                 .getReference()
                 .child("order");
@@ -74,7 +76,7 @@ public class StoreFragment extends Fragment {
             @Override
             protected void onBindViewHolder(@NonNull ItemAdapter holder, int position, @NonNull DataModels model) {
 
-                if(model.getTitle() !=null){
+                if(model.getTitle() != null){
                     holder.mProductName.setText(model.getTitle());
                 }
                 else {
@@ -86,11 +88,13 @@ public class StoreFragment extends Fragment {
                 else {
                     holder.mPrice.setText("no Price ");
                 }
-                if(model.getImageUrl() == 1){
-                    holder.mThumbnail.setImageResource(R.drawable.account);
-                }
+                if(model.getDownloadUrl() != null){
+                    Glide.with(getActivity())
+                            .load(model.getDownloadUrl()).into(holder.mThumbnail);
+                    }
                 else {
-                    holder.mThumbnail.setImageResource(R.drawable.ic_plant);
+                    Glide.with(getActivity())
+                            .load(R.drawable.ic_plant).into(holder.mThumbnail);
                 }
 
                 }

@@ -14,4 +14,9 @@
     <string name="title_cart">Cart</string>
     <string name="title_profile">Profile</string>
     <string name="title_map">Tracker</string>
+    <string name="sign_up_now">Sign up Now</string>
+    <string name="phone_number_str">Phone Number</string>
+    <string name="name_hint_str">Name</string>
+    <string name="create_password_hint_str">Create Password</string>
+    <string name="confirm_password_hint_str">Confirm Password</string>
 </resources>

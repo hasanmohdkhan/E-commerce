@@ -16,6 +16,14 @@ import com.example.hasanzian.e_commerce.fragment.ProfileFragment;
 import com.example.hasanzian.e_commerce.fragment.StoreFragment;
 import com.example.hasanzian.e_commerce.fragment.TrackerFragment;
 
+/*
+*  MainActivity Used to initialized bottom navigation
+*  it set default layout to shopFragment
+*
+*  TODO rename it
+*
+* */
+
 public class MainActivity extends AppCompatActivity {
    private ActionBar actionBar;
 

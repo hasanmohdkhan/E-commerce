@@ -47,7 +47,6 @@ public class DataModels {
         this.imageUrl = imageUrl;
     }
 
-
     public String getId() {
         return id;
     }

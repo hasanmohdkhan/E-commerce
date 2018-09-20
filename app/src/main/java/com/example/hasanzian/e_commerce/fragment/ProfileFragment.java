@@ -63,15 +63,10 @@ public class ProfileFragment extends Fragment {
     @BindView(R.id.add_image)
     Button upload;
 
-//    FirebaseDatabase mFirebaseDatabase;
-//    DatabaseReference mFirebaseDatabaseReference;
-//
-
-
     //a Uri object to store file path
     private Uri filePath;
 
-    String t, p,d;
+    String t, p, d;
     int i;
     String downloadUrl;
 
@@ -106,21 +101,14 @@ public class ProfileFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 uploadFile();
-
-
             }
         });
-
 
         upload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 showFileChooser();
-
-
             }
         });
 
@@ -159,10 +147,6 @@ public class ProfileFragment extends Fragment {
     }
 
 
-
-
-
-
     //this method will upload the file
     private void uploadFile() {
         //if there is a file to upload
@@ -172,45 +156,39 @@ public class ProfileFragment extends Fragment {
             progressDialog.setTitle("Uploading");
             progressDialog.show();
 
-            final StorageReference riversRef = storageReference.child("images/"+filePath.getLastPathSegment());
+            final StorageReference riversRef = storageReference.child("images/" + filePath.getLastPathSegment());
 
-            riversRef.putFile(filePath)
-                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+            riversRef.putFile(filePath).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
+                    //if the upload is successfull
+                    //hiding the progress dialog
+                    progressDialog.dismiss();
 
+                    //and displaying a success toast
+                    Toast.makeText(getContext(), "File Uploaded ", Toast.LENGTH_LONG).show();
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception exception) {
+                    //if the upload is not success full
+                    //hiding the progress dialog
+                    progressDialog.dismiss();
 
-                            //if the upload is successfull
-                            //hiding the progress dialog
-                            progressDialog.dismiss();
+                    //and displaying error message
+                    Toast.makeText(getContext(), exception.getMessage(), Toast.LENGTH_LONG).show();
+                }
+            }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                    //calculating progress percentage
+                    double progress = (100.0 * taskSnapshot.getBytesTransferred()) / taskSnapshot.getTotalByteCount();
 
-
-                            //and displaying a success toast
-                            Toast.makeText(getContext(), "File Uploaded ", Toast.LENGTH_LONG).show();
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception exception) {
-                            //if the upload is not success full
-                            //hiding the progress dialog
-                            progressDialog.dismiss();
-
-                            //and displaying error message
-                            Toast.makeText(getContext(), exception.getMessage(), Toast.LENGTH_LONG).show();
-                        }
-                    })
-                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
-                            //calculating progress percentage
-                            double progress = (100.0 * taskSnapshot.getBytesTransferred()) / taskSnapshot.getTotalByteCount();
-
-                            //displaying percentage in progress dialog
-                            progressDialog.setMessage("Uploaded " + ((int) progress) + "%...");
-                        }
-                    }).continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+                    //displaying percentage in progress dialog
+                    progressDialog.setMessage("Uploaded " + ((int) progress) + "%...");
+                }
+            }).continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
                 @Override
                 public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
                     if (!task.isSuccessful()) {
@@ -225,8 +203,8 @@ public class ProfileFragment extends Fragment {
                 public void onComplete(@NonNull Task<Uri> task) {
                     if (task.isSuccessful()) {
                         Uri downloadUri = task.getResult();
-                      downloadUrl =  downloadUri.toString();
-                        Log.d("dURL",downloadUrl);
+                        downloadUrl = downloadUri.toString();
+                        Log.d("dURL", downloadUrl);
 
                         t = title.getText().toString();
                         // i = Integer.parseInt(image.getText().toString());
@@ -242,11 +220,6 @@ public class ProfileFragment extends Fragment {
                         myRef.push().setValue(dataModels);
 
 
-
-
-
-
-
                     } else {
                         // Handle failures
                         // ...
@@ -259,7 +232,6 @@ public class ProfileFragment extends Fragment {
             //you can display an error toast
         }
     }
-
 
 
 }
