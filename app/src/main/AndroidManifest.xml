@@ -14,18 +14,24 @@
         <activity
             android:name=".LoginActivity"
             android:theme="@style/NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main" />
-        <activity android:name=".SignUpActivity"
-            android:theme="@style/NoActionBar"
-            android:parentActivityName=".LoginActivity">
+        <activity
+            android:name=".SignUpActivity"
+            android:parentActivityName=".LoginActivity"
+            android:theme="@style/NoActionBar">
+
+        </activity>
+        <activity android:name=".ChooseUserCategoryActivity"
+            android:theme="@style/NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
 
         </activity>
     </application>

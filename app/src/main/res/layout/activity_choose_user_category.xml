@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    tools:context=".LoginActivity">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/banner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/CardView.Light"
+        app:cardElevation="4dp"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorAccent">
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="wrap_content"
+                android:layout_height="200dp"
+                app:srcCompat="@drawable/ic_plant"
+                android:contentDescription="@string/app_logo" />
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+
+
+
+    <LinearLayout
+        android:id="@+id/sign_in_text_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/banner"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/dimens_32dp"
+        >
+
+        <include
+            layout="@layout/divider"
+            android:layout_weight="1"
+            android:layout_height="1dp"
+            android:layout_width="0dp"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/choose_user_type_str"
+            android:layout_margin="4dp"
+            android:textStyle="bold"
+            android:textColor="@color/ColorBlack"
+            android:textSize="@dimen/text_dimens_22sp"
+            />
+
+        <include
+            layout="@layout/divider"
+            android:layout_weight="1"
+            android:layout_height="1dp"
+            android:layout_width="0dp"
+            android:layout_margin="8dp"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+
+
+
+   <LinearLayout
+       android:id="@+id/user_type"
+       android:layout_below="@+id/sign_in_text_layout"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="horizontal"
+       android:weightSum="100"
+       android:baselineAligned="false">
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="50"
+        android:padding="@dimen/dimens_32dp"
+        >
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/buyer_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_farmer"
+            android:layout_gravity="center"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/buyer_str"
+            android:textColor="@color/colorAccent"
+            android:layout_marginTop="@dimen/dimens_32dp"
+            android:textAlignment="center"
+            android:textSize="@dimen/text_dimens_22sp"/>
+
+
+
+       </LinearLayout>
+  <View
+      android:layout_width="1dp"
+      android:layout_height="match_parent"
+      android:background="#000"
+      android:layout_marginTop="@dimen/dimens_32dp"
+      android:layout_marginBottom="64dp"
+      />
+
+       <LinearLayout
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:orientation="vertical"
+           android:layout_weight="50"
+           android:padding="@dimen/dimens_32dp">
+
+
+           <de.hdodenhof.circleimageview.CircleImageView
+               android:id="@+id/seller_image"
+               android:layout_width="100dp"
+               android:layout_height="100dp"
+               android:src="@drawable/ic_seller"
+               android:layout_gravity="center"
+               />
+
+
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="@string/seller_str"
+               android:textSize="@dimen/text_dimens_22sp"
+               android:textColor="@color/colorPrimaryDark"
+               android:layout_marginTop="@dimen/dimens_32dp"
+               android:textAlignment="center"
+               />
+
+
+
+       </LinearLayout>
+
+   </LinearLayout>
+
+
+
+<TextView
+    android:layout_below="@+id/user_type"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Click on image to start"
+    android:textColor="@color/ColorBlack"
+    android:gravity="center"
+    android:textSize="@dimen/text_dimens_22sp"
+    />
+
+
+</RelativeLayout>

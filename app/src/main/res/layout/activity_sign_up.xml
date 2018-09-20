@@ -91,7 +91,7 @@
                 app:srcCompat="@drawable/email" />
 
             <EditText
-                android:id="@+id/email"
+                android:id="@+id/email_sign_up"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/email"
@@ -120,7 +120,7 @@
             <!-- TODO add hint_str to all hint strings -->
 
             <EditText
-                android:id="@+id/user_name"
+                android:id="@+id/user_name_sign_up"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/name_hint_str"
@@ -147,7 +147,7 @@
                 app:srcCompat="@drawable/phone" />
 
             <EditText
-                android:id="@+id/phone"
+                android:id="@+id/phone_sign_up"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/phone_number_str"
@@ -174,7 +174,7 @@
                 app:srcCompat="@drawable/lock" />
 
             <EditText
-                android:id="@+id/password_new"
+                android:id="@+id/password_new_sign_up"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/create_password_hint_str"
@@ -201,7 +201,7 @@
                 app:srcCompat="@drawable/email" />
 
             <EditText
-                android:id="@+id/password_reenter"
+                android:id="@+id/password_reenter_sign_up"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/confirm_password_hint_str"
@@ -214,7 +214,7 @@
 
 
         <Button
-            android:id="@+id/create_account"
+            android:id="@+id/create_account_sign_up"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

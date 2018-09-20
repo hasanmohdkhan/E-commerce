@@ -81,8 +81,7 @@ public class LoginActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onCodeSent(String verificationId,
-                                   PhoneAuthProvider.ForceResendingToken token) {
+            public void onCodeSent(String verificationId, PhoneAuthProvider.ForceResendingToken token) {
                 // The SMS verification code has been sent to the provided phone number, we
                 // now need to ask the user to enter the code and then construct a credential
                 // by combining the code with a verification ID.
@@ -95,7 +94,6 @@ public class LoginActivity extends AppCompatActivity {
                 // ...
             }
         };
-
 
 
     }
@@ -137,14 +135,14 @@ public class LoginActivity extends AppCompatActivity {
 
     @OnClick(R.id.create_account)
     public void sginUp() {
-       // createAccount();
+        // createAccount();
         finish();
-        Intent signUpIntent = new Intent(this,SignUpActivity.class);
+        Intent signUpIntent = new Intent(this, SignUpActivity.class);
         startActivity(signUpIntent);
     }
 
     @OnClick(R.id.logo)
-    public void sms(){
+    public void sms() {
 //        PhoneAuthProvider.getInstance().verifyPhoneNumber(
 //                "+917007174462",        // Phone number to verify
 //                60,                 // Timeout duration
@@ -152,7 +150,6 @@ public class LoginActivity extends AppCompatActivity {
 //                this,               // Activity (for callback binding)
 //                mCallbacks);        // OnVerificationStateChangedCallbacks
 //
-
 
 
     }

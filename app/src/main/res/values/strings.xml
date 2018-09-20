@@ -19,4 +19,7 @@
     <string name="name_hint_str">Name</string>
     <string name="create_password_hint_str">Create Password</string>
     <string name="confirm_password_hint_str">Confirm Password</string>
+    <string name="choose_user_type_str">Choose User Type</string>
+    <string name="buyer_str">Buyer</string>
+    <string name="seller_str">Seller</string>
 </resources>
