@@ -1,6 +1,7 @@
 package com.example.hasanzian.e_commerce.fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -14,6 +15,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.hasanzian.e_commerce.PlaceOrderActivity;
 import com.example.hasanzian.e_commerce.R;
 import com.example.hasanzian.e_commerce.adaptor.ItemAdapter;
 import com.example.hasanzian.e_commerce.model.DataModels;
@@ -111,6 +113,17 @@ public class StoreFragment extends Fragment {
                    @Override
                    public void onClick(View view) {
                        Toast.makeText(getContext(),"P:" + model.getTitle() ,Toast.LENGTH_SHORT).show();
+                       Bundle orderSummary = new Bundle();
+                       orderSummary.putString(getString(R.string.title_key),model.getTitle());
+                       orderSummary.putString(getString(R.string.price_key),model.getPrice());
+                       orderSummary.putString(getString(R.string.image_key),model.getDownloadUrl());
+
+                       Intent orderIntent = new Intent(getContext(), PlaceOrderActivity.class);
+                       orderIntent.putExtras(orderSummary);
+                       startActivity(orderIntent);
+
+
+
                    }
                });
                 }

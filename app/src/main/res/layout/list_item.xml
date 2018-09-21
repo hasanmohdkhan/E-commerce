@@ -19,14 +19,14 @@
 
             <android.support.v7.widget.CardView
                 android:id="@+id/card"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 app:cardElevation="4dp"
                 android:layout_margin="8dp">
             <ImageView
                 android:id="@+id/image_view"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 android:scaleType="fitXY"
                 app:srcCompat="@drawable/ic_plant"/>
 
@@ -54,6 +54,20 @@
                 android:layout_height="wrap_content"
                 tools:text="$ 450"/>
 
+            <Button
+                android:id="@+id/btn"
+                android:layout_below="@+id/price"
+                android:layout_margin="8dp"
+                android:layout_toRightOf="@+id/card"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape"
+                android:textColor="@color/colorAccent"
+                android:text="@string/buy_now"
+                android:layout_width="wrap_content"
+
+                />
+
+
         </RelativeLayout>
 
 
@@ -79,12 +93,6 @@
 
     />
 
-    <Button
-        android:id="@+id/btn"
-        android:layout_below="@+id/card_list"
-        android:layout_height="50dp"
-        android:layout_width="50dp"
 
-        />
 
 </RelativeLayout>

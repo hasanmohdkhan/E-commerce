@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/dimens_32dp"
+    tools:context=".PlaceOrderActivity">
+
+
+    <ImageView
+        android:id="@+id/order_image"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@color/colorAccent"
+        android:scaleType="fitXY"
+
+        />
+
+      <TextView
+          android:id="@+id/order_title"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_below="@+id/order_image"
+          tools:text="@string/title_Profile"
+          android:layout_marginTop="@dimen/dimen_8dp"
+          android:textSize="@dimen/text_dimens_22sp"
+          android:textStyle="bold"
+          />
+
+
+    <TextView
+        android:id="@+id/order_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/order_title"
+        tools:text="@string/title_Profile"
+        android:layout_marginTop="@dimen/dimen_8dp"
+        android:textSize="@dimen/text_dimens_22sp"
+        android:textStyle="bold"
+        />
+
+       <Button
+           android:id="@+id/order_confirm_btn"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="@string/confirm_order"
+           android:layout_below="@id/order_price"
+           android:background="@drawable/shape"
+           android:layout_marginTop="@dimen/dimens_32dp"
+           android:textColor="@color/colorPrimaryDark"/>
+
+</RelativeLayout>

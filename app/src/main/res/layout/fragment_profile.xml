@@ -32,7 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
-            android:hint="Int"
+            android:hint="Quantity"
             android:layout_margin="@dimen/dimens_32dp"/>
 
         <Button
@@ -40,7 +40,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/ed_image"
-            android:text="Upload Image"/>
+            android:text="Upload Image"
+            android:background="@drawable/shape"
+            android:textColor="@color/colorAccent"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp" />
 
         <ImageView
             android:id="@+id/preview"
@@ -58,11 +62,16 @@
 
         <Button
             android:layout_marginTop="20dp"
+            android:layout_marginStart="16dp"
             android:id="@+id/add_product"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="submit"
-            android:layout_below="@id/add_image"/>
+            android:background="@drawable/shape"
+            android:textColor="@color/colorAccent"
+            android:layout_below="@id/add_image"
+
+            android:layout_marginLeft="20dp" />
 
     </RelativeLayout>
 

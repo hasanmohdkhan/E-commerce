@@ -13,14 +13,14 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".LoginActivity"
-            android:theme="@style/NoActionBar"></activity>
+            android:theme="@style/NoActionBar" />
         <activity
             android:name=".SellerActivity"
             android:label="@string/title_activity_main" />
         <activity
             android:name=".SignUpActivity"
             android:parentActivityName=".LoginActivity"
-            android:theme="@style/NoActionBar"></activity>
+            android:theme="@style/NoActionBar" />
         <activity
             android:name=".ChooseUserCategoryActivity"
             android:theme="@style/NoActionBar">
@@ -33,11 +33,11 @@
         <activity android:name=".ForgotPasswordActivity" />
         <activity
             android:name=".BuyerActivity"
-            android:label="@string/title_activity_buyer"></activity>
-
+            android:label="@string/title_activity_buyer" />
         <activity
             android:name=".ManageAccountActivity"
-            android:label="@string/title_manage_account_activity"></activity>
+            android:label="@string/title_manage_account_activity" />
+        <activity android:name=".PlaceOrderActivity"></activity>
     </application>
 
 </manifest>
