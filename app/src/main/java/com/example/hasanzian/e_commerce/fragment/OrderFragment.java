@@ -9,9 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.hasanzian.e_commerce.model.DataModels;
 import com.example.hasanzian.e_commerce.R;
 import com.example.hasanzian.e_commerce.adaptor.ShopAdapter;
+import com.example.hasanzian.e_commerce.model.DataModels;
 
 import java.util.ArrayList;
 import java.util.List;

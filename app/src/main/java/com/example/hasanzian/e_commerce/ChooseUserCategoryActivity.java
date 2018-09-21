@@ -27,6 +27,11 @@ public class ChooseUserCategoryActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent sellerIntent = new Intent(getApplicationContext(),LoginActivity.class);
+                Bundle sellerBundle= new Bundle();
+                sellerBundle.getInt(getString(R.string.KEY),2);
+
+                sellerIntent.putExtras(sellerBundle);
+
                 startActivity(sellerIntent);
             }
         });
@@ -34,7 +39,12 @@ public class ChooseUserCategoryActivity extends AppCompatActivity {
         buyer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent buyerIntent = new Intent(getApplicationContext(),LoginActivity.class);
+                Bundle sellerBundle= new Bundle();
+                sellerBundle.getInt(getString(R.string.KEY),1);
+
+                Intent buyerIntent = new Intent(getApplicationContext(),BuyerActivity.class);
+                buyerIntent.putExtras(sellerBundle);
+
                 startActivity(buyerIntent);
             }
         });

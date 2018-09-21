@@ -38,7 +38,7 @@ public final class Utils {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "createUserWithEmail:success");
                     FirebaseUser user = mAuth.getCurrentUser();
-                    Toast.makeText( mContext, "createUserWithEmail:success " +user.getEmail() , Toast.LENGTH_SHORT).show();
+                    Toast.makeText( mContext, "createUserWithEmail:success " +user.getEmail().toString() , Toast.LENGTH_SHORT).show();
                    // updateUI(user);
                 } else {
                     // If sign in fails, display a message to the user.

@@ -1,5 +1,4 @@
-package com.example.hasanzian.e_commerce.fragment;
-
+package com.example.hasanzian.e_commerce;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -11,10 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.example.hasanzian.e_commerce.R;
 import com.example.hasanzian.e_commerce.adaptor.ItemAdapter;
 import com.example.hasanzian.e_commerce.model.DataModels;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -29,7 +26,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-public class StoreFragment extends Fragment {
+public class SellerShopFragment extends Fragment {
+
     @BindView(R.id.recycler)
     RecyclerView mRecyclerView;
     private List<DataModels> list;
@@ -42,13 +40,15 @@ public class StoreFragment extends Fragment {
     ProgressBar progressBar;
 
 
-    public StoreFragment() {
+    public SellerShopFragment() {
         // Required empty public constructor
     }
 
-    public static StoreFragment newInstance(String param1, String param2) {
-        StoreFragment fragment = new StoreFragment();
+
+    public static SellerShopFragment newInstance(String param1, String param2) {
+        SellerShopFragment fragment = new SellerShopFragment();
         Bundle args = new Bundle();
+
         fragment.setArguments(args);
         return fragment;
     }
@@ -69,7 +69,7 @@ public class StoreFragment extends Fragment {
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mLinearLayoutManager = new LinearLayoutManager(getContext());
-      //  progressDialog = new ProgressDialog(getContext());
+        //  progressDialog = new ProgressDialog(getContext());
 
         // Firebase reference  here
         mDatabaseReference = FirebaseDatabase.getInstance().getReference();
@@ -82,7 +82,7 @@ public class StoreFragment extends Fragment {
 
         mFirebaseAdapter = new FirebaseRecyclerAdapter<DataModels, ItemAdapter>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull ItemAdapter holder, final int position, @NonNull final DataModels model) {
+            protected void onBindViewHolder(@NonNull ItemAdapter holder, int position, @NonNull DataModels model) {
 
                 if(model.getTitle() != null){
                     holder.mProductName.setText(model.getTitle());
@@ -102,24 +102,19 @@ public class StoreFragment extends Fragment {
                 if(model.getDownloadUrl() != null){
                     Glide.with(getActivity())
                             .load(model.getDownloadUrl()).into(holder.mThumbnail);
-                    }
+                }
                 else {
                     Glide.with(getActivity())
                             .load(R.drawable.ic_plant).into(holder.mThumbnail);
                 }
-               holder.button.setOnClickListener(new View.OnClickListener() {
-                   @Override
-                   public void onClick(View view) {
-                       Toast.makeText(getContext(),"P:" + model.getTitle() ,Toast.LENGTH_SHORT).show();
-                   }
-               });
-                }
+
+            }
 
             @NonNull
             @Override
             public ItemAdapter onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                 View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item,parent,false);
-                 return new ItemAdapter(view);
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item,parent,false);
+                return new ItemAdapter(view);
             }
         };
 
@@ -128,6 +123,8 @@ public class StoreFragment extends Fragment {
         mRecyclerView.setAdapter(mFirebaseAdapter);
 
         if(mFirebaseAdapter.getItemCount() == 0){
+            //progressDialog.setTitle("Loading");
+            // progressDialog.show();
             progressBar.setVisibility(View.VISIBLE);
         }
 

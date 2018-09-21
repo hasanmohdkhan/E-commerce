@@ -2,6 +2,7 @@ package com.example.hasanzian.e_commerce.adaptor;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -21,12 +22,22 @@ public  class ItemAdapter extends RecyclerView.ViewHolder
 
     @BindView(R.id.price)
     public TextView mPrice;
+    @BindView(R.id.btn)
+    public Button button;
 
-    public ItemAdapter(View v) {
-        super(v);
-        ButterKnife.bind(this, v);
+    public ItemAdapter(View view) {
+        super(view);
+        ButterKnife.bind(this, view);
+
+
 
     }
-}
+
+
+
+
+
+    }
+
 
 

@@ -1,6 +1,5 @@
 package com.example.hasanzian.e_commerce;
 
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -12,35 +11,30 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.example.hasanzian.e_commerce.fragment.CartFragment;
 import com.example.hasanzian.e_commerce.fragment.OrderFragment;
-import com.example.hasanzian.e_commerce.fragment.ProfileFragment;
 import com.example.hasanzian.e_commerce.fragment.StoreFragment;
 import com.example.hasanzian.e_commerce.fragment.TrackerFragment;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-/*
- *  SellerActivity Used to initialized bottom navigation
- *  it set default layout to shopFragment
- *
- * */
+public class BuyerActivity extends AppCompatActivity {
 
-public class SellerActivity extends AppCompatActivity {
     private ActionBar actionBar;
     FirebaseAuth mFirebaseAuth = null;
     FirebaseUser mFirebaseUser = null;
-    private BottomNavigationView.OnNavigationItemSelectedListener
 
-            mOnNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
+    private TextView mTextMessage;
+
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             Fragment fragment;
 
             switch (item.getItemId()) {
-
                 case R.id.navigation_home:
                     actionBar.setTitle(R.string.title_shop);
                     fragment = new StoreFragment();
@@ -52,9 +46,10 @@ public class SellerActivity extends AppCompatActivity {
                     loadFragment(fragment);
                     return true;
                 case R.id.navigation_profile:
-                    actionBar.setTitle(R.string.title_add_product);
-                    fragment = new ProfileFragment();
-                    loadFragment(fragment);
+//                    actionBar.setTitle(R.string.title_add_product);
+//                    fragment = new ProfileFragment();
+//                    loadFragment(fragment);
+                    startActivity(new Intent(getApplicationContext(),ManageAccountActivity.class));
                     return true;
 
                 case R.id.navigation_map_maker:
@@ -72,25 +67,11 @@ public class SellerActivity extends AppCompatActivity {
         }
     };
 
-
-
-    private void loadFragment(Fragment fragment) {
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.frame_container, fragment);
-        transaction.addToBackStack(null);
-        transaction.commit();
-    }
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         actionBar = getSupportActionBar();
-
-        mFirebaseAuth = FirebaseAuth.getInstance();
-        mFirebaseUser = mFirebaseAuth.getCurrentUser();
 
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
@@ -113,12 +94,20 @@ public class SellerActivity extends AppCompatActivity {
                 if (mFirebaseUser != null) {
                     mFirebaseAuth.signOut();
                 }
-                 finish();
-                startActivity(new Intent(this, LoginActivity.class));
+                finish();
+               // startActivity(new Intent(this, LoginActivity.class));
                 return true;
-                default:
+            default:
                 return super.onOptionsItemSelected(item);
         }
 
+    }
+
+
+    private void loadFragment(Fragment fragment) {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.frame_container, fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
 }

@@ -56,6 +56,9 @@ dependencies {
     //circular image view
     implementation 'de.hdodenhof:circleimageview:2.2.0'
 
+    //timeline
+    implementation 'com.github.vipulasri:timelineview:1.0.6'
+
 
 }
 apply plugin: 'com.google.gms.google-services'
