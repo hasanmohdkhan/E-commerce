@@ -1,4 +1,4 @@
-package com.example.hasanzian.e_commerce;
+package com.hasanzian.farmer.ecom.demo;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.hasanzian.e_commerce", appContext.getPackageName());
+        assertEquals("com.hasanzian.farmer.ecom.demo", appContext.getPackageName());
     }
 }

@@ -1,4 +1,4 @@
-package com.example.hasanzian.e_commerce;
+package com.hasanzian.farmer.ecom.demo;
 
 import org.junit.Test;
 

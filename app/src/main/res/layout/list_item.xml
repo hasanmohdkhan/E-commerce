@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal">
 
     <android.support.v7.widget.CardView
@@ -21,78 +20,71 @@
                 android:id="@+id/card"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                app:cardElevation="4dp"
-                android:layout_margin="8dp">
-            <ImageView
-                android:id="@+id/image_view"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:scaleType="fitXY"
-                app:srcCompat="@drawable/ic_plant"/>
+                android:layout_margin="8dp"
+                app:cardElevation="4dp">
+
+                <ImageView
+                    android:id="@+id/image_view"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/ic_plant" />
 
             </android.support.v7.widget.CardView>
 
             <TextView
                 android:id="@+id/title"
-                android:layout_margin="8dp"
-                android:layout_toRightOf="@+id/card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_toRightOf="@+id/card"
+                android:textSize="18sp"
+                android:maxLines="2"
                 android:textStyle="bold"
-                android:textSize="22sp"
-                tools:text="title"/>
+                tools:text="Hybird Organic Compost"
+                android:layout_toEndOf="@+id/card" />
 
 
             <TextView
                 android:id="@+id/price"
-                android:layout_below="@+id/title"
-                android:layout_toRightOf="@+id/card"
-                android:layout_margin="8dp"
-                android:textStyle="bold"
-                android:textSize="22sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:text="$ 450"/>
+                android:layout_below="@+id/title"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:layout_toRightOf="@+id/card"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                tools:text="$ 450"
+                android:layout_toEndOf="@+id/card" />
 
             <Button
                 android:id="@+id/btn"
-                android:layout_below="@+id/price"
-                android:layout_margin="8dp"
-                android:layout_toRightOf="@+id/card"
-                android:layout_height="wrap_content"
-                android:background="@drawable/shape"
-                android:textColor="@color/colorAccent"
-                android:text="@string/buy_now"
                 android:layout_width="wrap_content"
-
-                />
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/price"
+                android:layout_toRightOf="@+id/card"
+                android:background="@drawable/shape"
+                android:text="@string/buy_now"
+                android:textColor="@color/colorAccent"
+                android:layout_toEndOf="@+id/card" />
 
 
         </RelativeLayout>
 
 
-
-
-
     </android.support.v7.widget.CardView>
 
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/card_list"
+        android:layout_marginTop="1dp"
+        android:background="@color/ColorBlack"
 
 
-
-
-
-
-<View
-    android:layout_marginTop="1dp"
-    android:layout_below="@id/card_list"
-    android:layout_width="match_parent"
-    android:layout_height="1dp"
-    android:background="@color/ColorBlack"
-
-
-    />
-
+        />
 
 
 </RelativeLayout>

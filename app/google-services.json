@@ -49,6 +49,50 @@
           "status": 2
         }
       }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:278769781910:android:500f3bbfe9cb23da",
+        "android_client_info": {
+          "package_name": "com.hasanzian.farmer.ecom.demo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "278769781910-9cqsg8esprpmskkae2nf967uh7ij74g3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hasanzian.farmer.ecom.demo",
+            "certificate_hash": "c46d29a300602b2dfd1472808a9db4ec4259554d"
+          }
+        },
+        {
+          "client_id": "278769781910-vbef2526tnej3cccr9i83fo91mdl1c5l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvnVOLm5BZYD0TZjYxcZ3H4bFZpc1eZy4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "278769781910-vbef2526tnej3cccr9i83fo91mdl1c5l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
     }
   ],
   "configuration_version": "1"
