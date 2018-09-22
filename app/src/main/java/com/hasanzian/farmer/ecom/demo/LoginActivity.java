@@ -9,7 +9,6 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.hasanzian.farmer.ecom.demo.R;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -108,20 +107,20 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void navigateToHome() {
-        Bundle bundle = getIntent().getExtras();
-        assert bundle != null;
-        int code = bundle.getInt(getString(R.string.KEY));
-        if(code== 2){
+//        Bundle bundle = getIntent().getExtras();
+//        assert bundle != null;
+//        int code = bundle.getInt(getString(R.string.KEY));
+//        if(code== 2){
             Intent intent = new Intent(this, SellerActivity.class);
             startActivity(intent);
             finish();
-        }
-
-        if(code ==1 ){
-            Intent intent = new Intent(this, BuyerActivity.class);
-            startActivity(intent);
-            finish();
-        }
+//        }
+//
+//        if(code ==1 ){
+//            Intent intent = new Intent(this, BuyerActivity.class);
+//            startActivity(intent);
+//            finish();
+//        }
 
 
     }

@@ -13,7 +13,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import com.hasanzian.farmer.ecom.demo.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.hasanzian.farmer.ecom.demo.fragment.CartFragment;
@@ -47,10 +46,9 @@ public class BuyerActivity extends AppCompatActivity {
                     loadFragment(fragment);
                     return true;
                 case R.id.navigation_profile:
-//                    actionBar.setTitle(R.string.title_add_product);
-//                    fragment = new ProfileFragment();
-//                    loadFragment(fragment);
-                    startActivity(new Intent(getApplicationContext(),ManageAccountActivity.class));
+                    actionBar.setTitle(R.string.title_add_product);
+                    fragment = new ManageAccountFragment();
+                    loadFragment(fragment);
                     return true;
 
                 case R.id.navigation_map_maker:
@@ -81,6 +79,7 @@ public class BuyerActivity extends AppCompatActivity {
         actionBar.setTitle("Shop");
         loadFragment(new StoreFragment());
     }
+
     public boolean onCreateOptionsMenu(Menu menu) {
 
         MenuInflater inflater = getMenuInflater();
@@ -92,11 +91,11 @@ public class BuyerActivity extends AppCompatActivity {
 
         switch (item.getItemId()) {
             case R.id.log_out:
-                if (mFirebaseUser != null) {
-                    mFirebaseAuth.signOut();
-                }
+//                if (mFirebaseUser != null) {
+//                    mFirebaseAuth.signOut();
+//                }4
                 finish();
-               // startActivity(new Intent(this, LoginActivity.class));
+                startActivity(new Intent(this, ChooseUserCategoryActivity.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

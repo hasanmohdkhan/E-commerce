@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.hasanzian.farmer.ecom.demo">
+    package="com.hasanzian.farmer.ecom.demo"
+    >
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -34,9 +35,6 @@
         <activity
             android:name=".BuyerActivity"
             android:label="@string/title_activity_buyer" />
-        <activity
-            android:name=".ManageAccountActivity"
-            android:label="@string/title_manage_account_activity" />
         <activity android:name=".PlaceOrderActivity"></activity>
     </application>
 
