@@ -22,7 +22,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.hasanzian.farmer.ecom.demo.PlaceOrderActivity;
+import com.hasanzian.farmer.ecom.demo.Utils;
 import com.hasanzian.farmer.ecom.demo.adaptor.ItemAdapter;
+import com.hasanzian.farmer.ecom.demo.model.CartModel;
 import com.hasanzian.farmer.ecom.demo.model.DataModels;
 
 import java.util.List;
@@ -38,8 +40,6 @@ public class StoreFragment extends Fragment {
     public DatabaseReference mDatabaseReference;
     private FirebaseRecyclerAdapter<DataModels,ItemAdapter> mFirebaseAdapter;
     private LinearLayoutManager mLinearLayoutManager;
-
-    //ProgressDialog progressDialog;
     @BindView(R.id.loading)
     ProgressBar progressBar;
 
@@ -71,7 +71,6 @@ public class StoreFragment extends Fragment {
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mLinearLayoutManager = new LinearLayoutManager(getContext());
-      //  progressDialog = new ProgressDialog(getContext());
 
         // Firebase reference  here
         mDatabaseReference = FirebaseDatabase.getInstance().getReference();
@@ -117,7 +116,7 @@ public class StoreFragment extends Fragment {
                        orderSummary.putString(getString(R.string.title_key),model.getTitle());
                        orderSummary.putString(getString(R.string.price_key),model.getPrice());
                        orderSummary.putString(getString(R.string.image_key),model.getDownloadUrl());
-
+                       Utils.cartList.add(new CartModel(model.getTitle(),model.getPrice(),model.getDownloadUrl()));
                        Intent orderIntent = new Intent(getContext(), PlaceOrderActivity.class);
                        orderIntent.putExtras(orderSummary);
                        startActivity(orderIntent);

@@ -14,14 +14,18 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.hasanzian.farmer.ecom.demo.model.CartModel;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public final class Utils {
 
  public static final String TAG = "Utils";
 
- public static final int SELLER_CODE = 1;
- public static final int BUYERCODE = 2;
+ public static List<CartModel> cartList = new ArrayList<>();
+
 
     /**
      * Create a private constructor because no one should ever create a {@link Utils} object.

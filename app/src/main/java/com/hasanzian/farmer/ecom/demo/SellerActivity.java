@@ -13,7 +13,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-import com.hasanzian.farmer.ecom.demo.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.hasanzian.farmer.ecom.demo.fragment.CartFragment;
@@ -48,7 +47,7 @@ public class SellerActivity extends AppCompatActivity {
                     loadFragment(fragment);
                     return true;
                 case R.id.navigation_cart:
-                    actionBar.setTitle(R.string.title_upload);
+                    actionBar.setTitle(R.string.title_cart);
                     fragment = new CartFragment();
                     loadFragment(fragment);
                     return true;

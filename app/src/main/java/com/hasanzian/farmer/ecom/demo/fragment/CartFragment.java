@@ -9,12 +9,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.hasanzian.farmer.ecom.demo.R;
-import com.hasanzian.farmer.ecom.demo.adaptor.ShopAdapter;
-import com.hasanzian.farmer.ecom.demo.model.DataModels;
+import com.hasanzian.farmer.ecom.demo.Utils;
+import com.hasanzian.farmer.ecom.demo.adaptor.CartAdapter;
+import com.hasanzian.farmer.ecom.demo.model.CartModel;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -23,7 +24,8 @@ import butterknife.ButterKnife;
 public class CartFragment extends Fragment {
     @BindView(R.id.recycler)
     RecyclerView mRecyclerView;
-    private List<DataModels> list;
+    private List<CartModel> list;
+    @BindView(R.id.empty_item)TextView emptyView;
 
 
     public CartFragment() {
@@ -51,11 +53,17 @@ public class CartFragment extends Fragment {
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        list = new ArrayList<>();
-        list.add(new DataModels("Hybrid T12", "$ 24", R.drawable.ic_home_black_24dp));
 
-        ShopAdapter adapter = new ShopAdapter(list);
+        CartAdapter adapter = new CartAdapter(Utils.cartList,getActivity());
         mRecyclerView.setAdapter(adapter);
+
+        if(adapter.getItemCount() == 0){
+            emptyView.setVisibility(View.VISIBLE);
+        }
+        else {
+
+            emptyView.setVisibility(View.GONE);
+        }
 
 
         return view;

@@ -11,7 +11,7 @@
     <string name="title_notifications">Tracker</string>
     <string name="title_shop">Shop</string>
     <string name="title_gifts">Gifts</string>
-    <string name="title_upload">Add product</string>
+    <string name="title_cart">Cart</string>
     <string name="title_add_product">Add product</string>
     <string name="title_map">Tracker</string>
     <string name="sign_up_now">Sign up Now</string>
@@ -126,6 +126,7 @@
     <string name="buy_now">Buy Now</string>
     <string name="dummy_text_long">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</string>
     <string name="description">Description</string>
+    <string name="no_items">No items</string>
 
 
 </resources>

@@ -10,5 +10,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />
+    <TextView
+        android:id="@+id/empty_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/no_items"
+        android:textSize="@dimen/text_dimens_22sp"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/dimens_32dp"
+        android:gravity="center_horizontal"/>
 
 </FrameLayout>

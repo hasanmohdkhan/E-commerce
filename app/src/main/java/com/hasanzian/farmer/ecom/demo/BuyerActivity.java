@@ -41,7 +41,7 @@ public class BuyerActivity extends AppCompatActivity {
                     loadFragment(fragment);
                     return true;
                 case R.id.navigation_cart:
-                    actionBar.setTitle(R.string.title_upload);
+                    actionBar.setTitle(R.string.title_cart);
                     fragment = new CartFragment();
                     loadFragment(fragment);
                     return true;
