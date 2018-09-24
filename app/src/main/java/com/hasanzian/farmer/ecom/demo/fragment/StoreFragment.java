@@ -12,16 +12,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.hasanzian.farmer.ecom.demo.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.hasanzian.farmer.ecom.demo.PlaceOrderActivity;
+import com.hasanzian.farmer.ecom.demo.R;
 import com.hasanzian.farmer.ecom.demo.Utils;
 import com.hasanzian.farmer.ecom.demo.adaptor.ItemAdapter;
 import com.hasanzian.farmer.ecom.demo.model.CartModel;
@@ -111,7 +110,6 @@ public class StoreFragment extends Fragment {
                holder.button.setOnClickListener(new View.OnClickListener() {
                    @Override
                    public void onClick(View view) {
-                       Toast.makeText(getContext(),"P:" + model.getTitle() ,Toast.LENGTH_SHORT).show();
                        Bundle orderSummary = new Bundle();
                        orderSummary.putString(getString(R.string.title_key),model.getTitle());
                        orderSummary.putString(getString(R.string.price_key),model.getPrice());

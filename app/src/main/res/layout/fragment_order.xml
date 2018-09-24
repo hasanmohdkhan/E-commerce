@@ -11,4 +11,16 @@
         android:layout_height="match_parent"
         />
 
+    <TextView
+        android:id="@+id/empty_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/no_items"
+        android:textColor="@color/ColorBlack"
+        android:textSize="@dimen/text_dimens_22sp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:layout_gravity="center"
+        />
+
 </FrameLayout>

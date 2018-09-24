@@ -45,14 +45,10 @@ public class ProfileFragment extends Fragment {
     private StorageReference storageReference;
     private static final int PICK_IMAGE_REQUEST = 1;
     @BindView(R.id.ed_title)
-
     EditText title;
 
     @BindView(R.id.ed_price)
     EditText price;
-
-    @BindView(R.id.ed_image)
-    EditText image;
 
     @BindView(R.id.add_product)
     Button button;
@@ -101,7 +97,14 @@ public class ProfileFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                uploadFile();
+                if(title.getText().toString().isEmpty() && price.getText().toString().isEmpty()){
+                    Toast.makeText(getContext(),"No Empty Text is not allow in Title or Price",Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    uploadFile();
+                }
+
             }
         });
 
@@ -144,6 +147,7 @@ public class ProfileFragment extends Fragment {
                 e.printStackTrace();
             }
         }
+
     }
 
 

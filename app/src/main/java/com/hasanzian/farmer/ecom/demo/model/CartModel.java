@@ -7,21 +7,35 @@ public class CartModel {
     private int imageUrl;
     private String downloadUrl;
     private String id;
+    private String orderedTotal;
+    private String orderedTitle;
+    private String orderedQuantity;
 
-    //fire base
-    public CartModel() {
+    public String getOrderedTotal() {
+        return orderedTotal;
     }
 
+    public String getOrderedTitle() {
+        return orderedTitle;
+    }
+
+    public String getOrderedQuantity() {
+        return orderedQuantity;
+    }
+
+    //ordered model
+    public CartModel(String orderedTitle, String orderedTotal, String orderedQuantity,String downloadUrl) {
+        this.downloadUrl = downloadUrl;
+        this.orderedTotal = orderedTotal;
+        this.orderedTitle = orderedTitle;
+        this.orderedQuantity = orderedQuantity;
+    }
+
+    //Cart model
     public CartModel(String title, String price, String downloadUrl) {
         this.title = title;
         this.price = price;
         this.downloadUrl = downloadUrl;
-    }
-
-    public CartModel(String title, String price, int imageUrl) {
-        this.title = title;
-        this.price = price;
-        this.imageUrl = imageUrl;
     }
 
     public String getTitle() {

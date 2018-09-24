@@ -20,7 +20,7 @@ public  class ItemAdapter extends RecyclerView.ViewHolder
     @BindView(R.id.title)
     public TextView mProductName;
 
-    @BindView(R.id.price)
+    @BindView(R.id.order_total_price)
     public TextView mPrice;
     @BindView(R.id.btn)
     public Button button;

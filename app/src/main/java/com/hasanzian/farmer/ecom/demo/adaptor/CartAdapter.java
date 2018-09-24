@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -52,8 +53,10 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.myViewHolder> 
         ImageView mThumbnail;
         @BindView(R.id.title)
         TextView mProductName;
+        @BindView(R.id.btn)
+        Button button;
 
-        @BindView(R.id.price)
+        @BindView(R.id.order_total_price)
         TextView mPrice;
 
         myViewHolder(View itemView) {
@@ -61,5 +64,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.myViewHolder> 
             ButterKnife.bind(this, itemView);
         }
     }
+
+
 }
 

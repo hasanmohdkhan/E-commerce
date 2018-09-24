@@ -46,7 +46,7 @@ public class BuyerActivity extends AppCompatActivity {
                     loadFragment(fragment);
                     return true;
                 case R.id.navigation_profile:
-                    actionBar.setTitle(R.string.title_add_product);
+                    actionBar.setTitle(R.string.title_Profile);
                     fragment = new ManageAccountFragment();
                     loadFragment(fragment);
                     return true;

@@ -17,14 +17,18 @@ import com.google.firebase.auth.FirebaseUser;
 import com.hasanzian.farmer.ecom.demo.model.CartModel;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 
 public final class Utils {
 
- public static final String TAG = "Utils";
+    public static final String TAG = "Utils";
 
- public static List<CartModel> cartList = new ArrayList<>();
+    public static List<CartModel> cartList = new ArrayList<>();
+
+    public static List<CartModel> orderedList = new ArrayList<>();
 
 
     /**
@@ -36,23 +40,23 @@ public final class Utils {
     }
 
 
-    public static void createAccount(final FirebaseAuth mAuth, final Context mContext,final String email, final String password) {
+    public static void createAccount(final FirebaseAuth mAuth, final Context mContext, final String email, final String password) {
 
         // [START create_user_with_email]
-        mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener((Activity) mContext, new OnCompleteListener<AuthResult>() {
+        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener((Activity) mContext, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "createUserWithEmail:success");
                     FirebaseUser user = mAuth.getCurrentUser();
-                    Toast.makeText( mContext, "createUserWithEmail:success " +user.getEmail().toString() , Toast.LENGTH_SHORT).show();
-                   // updateUI(user);
+                    Toast.makeText(mContext, "createUserWithEmail:success " + user.getEmail().toString(), Toast.LENGTH_SHORT).show();
+                    // updateUI(user);
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "createUserWithEmail:failure", task.getException());
                     Toast.makeText(mContext, "Authentication failed.", Toast.LENGTH_SHORT).show();
-                  //  updateUI(null);
+                    //  updateUI(null);
                 }
 
                 // [START_EXCLUDE]
@@ -61,7 +65,6 @@ public final class Utils {
             }
         });
         // [END create_user_with_email]
-
 
 
     }
@@ -89,4 +92,13 @@ public final class Utils {
         return requestOptions;
     }
 
+    public static List<CartModel> removeDuplicate() {
+
+        Set<CartModel> set = new HashSet<>();
+        set.addAll(Utils.cartList);
+        Utils.cartList.clear();
+        Utils.cartList.addAll(set);
+        return Utils.cartList;
+
+    }
 }

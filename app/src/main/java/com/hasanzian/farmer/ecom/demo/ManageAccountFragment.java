@@ -23,6 +23,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.HashMap;
 import java.util.Map;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 
 public class ManageAccountFragment extends Fragment {
 
@@ -31,7 +34,11 @@ public class ManageAccountFragment extends Fragment {
     FirebaseUser mFirebaseUser = null;
     FirebaseDatabase mFirebaseDatabase = null;
     DatabaseReference mDatabaseReference = null;
-    Button detailsBtn,passBtn;
+    Button detailsBtn, passBtn;
+    @BindView(R.id.account_update_password)
+    EditText passwordOld;
+    @BindView(R.id.account_update_confirm_password)
+    EditText passwordNew;
 
 
     public ManageAccountFragment() {
@@ -55,6 +62,7 @@ public class ManageAccountFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_manage_account, container, false);
+        ButterKnife.bind(view);
 
         mNameInputEditText = view.findViewById(R.id.account_update_full_name);
         mEmailInputEditText = view.findViewById(R.id.account_update_email);
@@ -65,7 +73,11 @@ public class ManageAccountFragment extends Fragment {
         detailsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(),"Update Complete ",Toast.LENGTH_SHORT).show();
+                if (mNameInputEditText.getText().toString().isEmpty() && mEmailInputEditText.getText().toString().isEmpty() && mPhoneInputEditText.getText().toString().isEmpty()) {
+                    Toast.makeText(getContext(), "Please fill all information ", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getContext(), "Update Complete ", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -73,8 +85,8 @@ public class ManageAccountFragment extends Fragment {
         passBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(),"Update Complete ",Toast.LENGTH_SHORT).show();
-            }
+                Toast.makeText(getContext(), "Update Complete ", Toast.LENGTH_SHORT).show();
+                }
         });
 
 
